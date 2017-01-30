@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The quest</title>
+    <!-- Latest compiled and minified CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+<link rel="stylesheet" href="bootstrap.min.css">
+
+    <!-- Optional theme -->
+     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+   
+    <link rel="stylesheet" href="bootstrap-theme.min.css">
+</head>
+<body onload="init()">
+    <script>
+        function init(){
+
+        }
+        var successrun="You reach your destination in time";
+        var nsuccessrun ="You are weighing too much"
+        var runoutput = "";
+        var attack = 5;
+        var weight = 3;
+        var test = false;
+        var buttons1 = true;
+        var buttons2 = true;
+        var buttons3 = true;
+        var bpar1 = false;
+        var bpar2 = false;
+        var bpar3 = false;
+        var bpar4 = false;
+        var bpar41 = false;
+        var bpar42 = false;
+        var bpar5 = false;
+        var bpar51 = false;
+        var bpar52 = false;
+        var bpar53 = false;
+        var bpar6 = false;
+        var bpar61 = false;
+        var bpar62 = false;
+        //ppoint2
+        function save() {
+            localStorage.clear()
+            localStorage.setItem("attack",attack);
+            //alert(localStorage.getItem("attack"));
+            localStorage.setItem("weight",weight);
+            localStorage.setItem("buttons1",buttons1);
+            //alert(localStorage.getItem("buttons1"));
+            localStorage.setItem("buttons2",buttons2);
+            localStorage.setItem("buttons3",buttons3);
+            localStorage.setItem("bpar1",bpar1);
+            localStorage.setItem("bpar2",bpar2);
+            //alert(localStorage.getItem("bpar2"));
+            localStorage.setItem("bpar3",bpar3);
+            localStorage.setItem("bpar4",bpar4);
+            localStorage.setItem("bpar41",bpar41);
+            localStorage.setItem("bpar42",bpar42);
+            //alert(localStorage.getItem("bpar42"));
+            localStorage.setItem("bpar5",bpar5);
+            localStorage.setItem("bpar51",bpar51);
+            localStorage.setItem("bpar52",bpar52);
+            localStorage.setItem("bpar53",bpar53);
+            localStorage.setItem("bpar6",bpar6);
+            localStorage.setItem("bpar61",bpar61);
+            localStorage.setItem("bpar62",bpar62);
+
+        }
+        function load() {
+            test = true;
+            //alert(localStorage.getItem("attack"));
+            //ppoint3
+            attack = parseInt(localStorage.getItem("attack"));
+            //alert(attack);
+            weight = parseInt(localStorage.getItem("weight"));
+            /*if (localStorage.getItem("buttons1" == "true")){
+              //  alert(localStorage.getItem("buttons1"));
+                buttons1 = true;
+            }else {buttons1 =false;}
+            if(localStorage.getItem("buttons2") =="true"){
+                buttons2 = true;
+            }else {
+                buttons2 =false;
+            }*/
+            if(localStorage.getItem("bpar1") =="true"){
+                 bpar1= true;
+            }else {
+                 bpar1=false;
+            }
+            if(localStorage.getItem("bpar2") =="true"){
+                bpar2= true;
+            }else {
+                bpar2=false;
+            }
+            if(localStorage.getItem("bpar3") =="true"){
+                bpar3= true;
+            }else {
+               bpar3 =false;
+            }
+            if(localStorage.getItem("bpar4") =="true"){
+               bpar4 = true;
+            }else {
+               bpar4 =false;
+            }
+            if(localStorage.getItem("bpar41") =="true"){
+                bpar41= true;
+            }else {
+                bpar41=false;
+            }
+            if(localStorage.getItem("bpar41") =="true"){
+                bpar41= true;
+            }else {
+                bpar41=false;
+            }
+            if(localStorage.getItem("bpar42") =="true"){
+                bpar42= true;
+            }else {
+                bpar42=false;
+            }
+            if(localStorage.getItem("bpar5") =="true"){
+                bpar5= true;
+            }else {
+                bpar5=false;
+            }
+            if(localStorage.getItem("bpar51") =="true"){
+                bpar51= true;
+            }else {
+                bpar51=false;
+            }
+            if(localStorage.getItem("bpar52") =="true"){
+                bpar52= true;
+            }else {
+                bpar52=false;
+            }
+            if(localStorage.getItem("bpar53") =="true"){
+                bpar53= true;
+            }else {
+                bpar53=false;
+            }
+            if(localStorage.getItem("bpar6") =="true"){
+                bpar6= true;
+            }else {
+                bpar6=false;
+            }
+            if(localStorage.getItem("bpar61") =="true"){
+                bpar61= true;
+            }else {
+                bpar61=false;
+            }
+            if(localStorage.getItem("bpar62") =="true"){
+                bpar62= true;
+            }else {
+                bpar62=false;
+            }
+            //alert("buttons2 =" + buttons2);
+            loadsec1();
+            //if(bpar2 == true|| bpar3 == true || bpar4 == true)
+            loadsec2();
+            if (test ==true)
+            buttons2=true;
+        }
+        function run() {
+            if(weight > 3){
+                return false;
+            }else {
+                return true;
+            }
+        }
+
+        function loadsec1() {
+            //alert("loadsec1");
+            //alert("bpar2 = " + bpar2);
+            //alert("buttons1 =" + buttons1);
+            if(buttons1==true) {
+
+                if (bpar1 == true) {
+                    document.getElementById("par1").style.display = "inline";
+                } else {
+                    if(test == false)
+                    document.getElementById("window").className = "col-md-3 btn-white form-control";
+                }
+                if (bpar2 == true) {
+              //      alert("load bpar2");
+                    document.getElementById("par2").style.display = "inline";
+                } else {
+                    if(test == false)
+                    document.getElementById("searchweapon").className = "col-md-3 btn-white form-control";
+                }
+                if (bpar3 == true) {
+                    document.getElementById("par3").style.display = "inline";
+                } else {
+                    if(test == false)
+                    document.getElementById("hide").className = "col-md-3 btn-white form-control";
+                }
+                if(test == false) {
+                    buttons1 = false;
+                    buttons2 = true;
+                }
+                //test = false;
+                //alert("buttons1 = " + buttons1);
+                //("buttons2 = " + buttons2);
+            }
+
+        }
+        function loadsec2() {
+            //alert("loadsec2")
+            if (buttons2==true){
+                if (bpar4 == true) {
+                    document.getElementById("par4").style.display = "inline";
+                    if(bpar41 == true){
+                        document.getElementById("par4.1").style.display = "inline";
+                        document.getElementById("tryreach").className = "col-md-3 btn-white form-control";
+                    }
+                    //ppoint1
+                    if (bpar42 == true && attack < 6){
+                        document.getElementById("par4.2").style.display = "inline";
+                        document.getElementById("run").className = "col-md-2 btn-white form-control";
+                    }
+                } else {
+                    //something different happens
+                }
+                if (bpar5 == true) {
+                    document.getElementById("par5").style.display = "inline";
+                    if(bpar51 == true){
+                        document.getElementById("par5.1").style.display = "inline";
+                        document.getElementById("escape").className = "col-md-3 btn-white form-control";
+                    }
+                    if (bpar52 == true){
+                        if (run() == true){
+                        document.getElementById("par5.2").style.display = "inline";}else {
+                            document.getElementById("par5.3").style.display = "inline";
+                        }
+
+                        document.getElementById("preparetofight").className = "col-md-3 btn-white form-control";
+                    }
+
+
+                } else {
+                    //document.getElementById("window").className = "col-md-3 btn-white form-control";
+                }
+                if (bpar6 == true) {
+                    document.getElementById("par6").style.display = "inline";
+                    if (bpar61 == true) {
+                        document.getElementById("par6.1").style.display = "inline";
+                        document.getElementById("trysurprise").className = "col-md-3 btn-white form-control";
+                    }
+                    if (bpar62 == true) {
+                        document.getElementById("par6.2").style.display = "inline";
+                        document.getElementById("stayhidden").className = "col-md-3 btn-white form-control";
+                    }
+                    //buttons2 = false;
+                } else {
+                    //document.getElementById("window").className = "col-md-3 btn-white form-control";
+                }
+                if(test == false)
+                buttons2 = false;
+            }
+        }
+        function var1true() {
+            bpar1 = true;
+        }
+        function var2true() {
+            bpar2 = true;
+        }
+        function var3true() {
+            bpar3 = true;
+        }
+        function var4true() {
+            bpar4 = true;
+        }
+        function var41true() {
+            bpar41 = true;
+        }
+        function var42true() {
+            bpar42 = true;
+        }
+        function var5true() {
+            bpar5 = true;
+        }
+        function var51true() {
+            bpar51 = true;
+        }
+        function var52true() {
+            bpar52 = true;
+        }
+        function var53true() {
+            bpar53 = true;
+        }
+        function var6true() {
+            bpar6 = true;
+        }
+        function var61true() {
+            bpar61 = true;
+        }
+        function var62true() {
+            bpar62 = true;
+        }
+
+
+    </script>
+<div class="container">
+<div class="col-md-12">
+    <p>
+        You wake up with a massive headache. You still have your armour on, but your sword is missing and after further inspection of your forehead you realize that you are bleeding and your
+        helmet is missing so you come to the conclusion, that you must been wounded in battle. Suddenly, you hear voices on the outside.<br/>
+        What do you do?
+    </p>
+</div>
+<div class="row">
+    <div onclick="var1true();loadsec1()" class="col-md-3">
+        <button id="window" class="col-md-3 btn-success form-control">Climb out the window</button>
+    </div>
+    <div onclick="var2true();loadsec1();attack = attack +3; weight = weight + 2" class="col-md-3">
+        <button id="searchweapon" class="col-md-3 btn-danger form-control">Search for a weapon</button>
+    </div>
+    <div onclick="var3true();loadsec1()" class="col-md-3">
+        <button id="hide" class="col-md-3 btn-warning form-control">Hide</button>
+    </div>
+</div>
+<div id="par1" style="display: none">
+    <div class="row">
+        <div class="col-md-12">
+            <p>You jumped out the window, now you see a wood ahead of you but an archer just comes around the corner and spots you. As he starts loading his bow you must choose:</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <button onclick="var4true();var41true();loadsec2()" id="run" class="col-md-3 btn-success form-control">Run to the forest!</button>
+        </div>
+        <div class="col-md-3">
+            <button onclick="var4true();var42true();loadsec2()" id="tryreach" class="col-md-3 btn-warning form-control">Try to reach him and fight!</button>
+        </div>
+    </div>
+</div>
+<div id="par2" style="display: none">
+    <div class="row">
+        <div class="col-md-12">
+            <p>You found a sword! Not the best one but it will do. <br/>
+            Attack + 3<br/>
+            Weight + 2<br/>
+            Somebody starts trying to knock down the door, what do you do?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <button onclick="var5true();var51true();loadsec2()" id="preparetofight" class="col-md-3 btn-warning form-control">Prepare to fight!</button>
+        </div>
+        <div class="col-md-3">
+            <button onclick="var5true();var52true();loadsec2()" id="escape" class="col-md-3 btn-success form-control">Try to escape trough the window</button>
+        </div>
+    </div>
+</div>
+<div id="par3" style="display: none">
+    <div class="row">
+        <div class="col-md-12">
+            <p>You hide in the hey just in time. A moment after you lay down a soldier with a lance breaches the door and storms in. Do you want to stay hidden or attack him andtake him by surprise?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <button onclick="var6true();var61true();loadsec2()" id="stayhidden" class="col-md-3 btn-warning form-control">Stay hidden</button>
+        </div>
+        <div class="col-md-3">
+            <button onclick="var6true();var62true();loadsec2()" id="trysurprise" class="col-md-3 btn-danger form-control">Try to take him by surprise!</button>
+        </div>
+    </div>
+</div>
+<div id="par4" style="display: none">
+    <div id="par4.1" style="display: none">
+        <div class="row">
+            <div class="col-md-12">
+                You reached the cover of the wood just as the archer shoots his arrow but hits a tree. You continue to run and finaly escape the battlefield... <br/>
+                You survived!
+            </div>
+        </div>
+    </div>
+    <div id="par4.2" style="display: none">
+        <div class="col-md-12">
+            <p>You reach him fast enough, but as you are unarmed you loose the fight...<br/>
+            You died...</p>
+        </div>
+    </div>
+</div>
+<div id="par5" style="display: none">
+    <div id="par5.1" style="display: none">
+        <p>A soldier bursts trough the door and in the same moment you strike him down with your sword... Afterwards you take his clothes and sneak away from the battle-field<br/>
+        You survive!</p>
+    </div>
+    <div id="par5.2" style="display: none">
+        <p id="test"></p>
+        <input style="border: white" id="testt"/>
+
+    </div>
+    <div id="par5.3" style="display: none">
+        <div class="row">
+            <div class="col-md-12">
+                <p>You are weighing too much so you don't reach the archer in time and get hit by a massive arrow...<br/>
+                You died...</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="par6" style="display: none">
+    <div id="par6.1" style="display: none">
+        <div class="row">
+            <div class="col-md-12">
+                <p>You stay hidden, but the soldier begins to stab the hey with his lance repeatedly and finally hits you... After that he strikes you again...<br/>
+                You died</p>
+            </div>
+        </div>
+    </div>
+    <div id="par6.2" style="display: none">
+        <div class="row">
+            <div class="col-md-12">
+                <p>You try to take the solder by surprise, but since you are unarmed you lose the fight and die.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <button onclick="save()">save</button>
+    <button onclick="load()">load</button>
+</div>
+</body>
+</html>
